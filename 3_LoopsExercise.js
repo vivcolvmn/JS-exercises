@@ -11,6 +11,11 @@
 
 // Exercise 1. Write a 'while' loop that prints the integers (whole numbers)
 // between 1 and 5 (inclusive).
+let num = 1;
+while (num <= 5) {
+  console.log(num);
+  num++;
+}
 
 // Exercise 2. Write a 'do while' loop that prints the integers (whole numbers)
 // between 1 and 5 (inclusive).
@@ -65,19 +70,19 @@ while (counterFour < 2) {
 
 /*
 counting down from 0
-*********************************** 
+***********************************
 counting down from 1
 inside 1
-*********************************** 
+***********************************
 counting down from 2
 inside 2
 inside 1
-*********************************** 
+***********************************
 counting down from 3
 inside 3
 inside 2
 inside 1
-*********************************** 
+***********************************
 */
 
 for (let outsideCounter = 0; outsideCounter <= 3 /*???*/; ) {
