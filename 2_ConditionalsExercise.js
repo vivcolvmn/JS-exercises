@@ -210,7 +210,11 @@ function exercise8(amount1, amount2, minimum, maximum) {
   // --------------------------------------------
   // Write your code for the exercise below here:
   // --------------------------------------------
-
+  if (amount1 >= minimum && amount2 >= minimum && amount1 <= maximum && amount2 <= maximum) {
+    answer8 = true;
+  } else {
+    answer8 = false;
+  }
   // --------------------------------------------
   // And above here
   // --------------------------------------------
@@ -229,7 +233,18 @@ function exercise9(item) {
   // --------------------------------------------
   // Write your code for the exercise below here:
   // --------------------------------------------
-
+  let dataType = typeof item;
+  if (dataType === "number") {
+    switch (item) {
+      case 1: answer9 = "You won!";
+      case 7: answer9 = "You are lucky!";
+      case 101: answer9 = "Welcome to coding 101!";
+      case 1000000: answer9 = "You are one in a million!";
+      default: answer9 = "Thanks for that!";
+    }
+  } else {
+    answer9 = `Please send a number, that was a ${dataType}.`
+  }
   // --------------------------------------------
   // And above here
   // --------------------------------------------
@@ -251,7 +266,12 @@ function exercise10(num10) {
   // --------------------------------------------
   // Write your code for the exercise below here:
   // --------------------------------------------
-
+  switch (num10) {
+    case num10 % 3 === 0: answer10 = "Fizz";
+    case num10 % 5 === 0: answer10 = "Buzz";
+    case num10 % 15 === 0: answer10 = "Fizz Buzz";
+    default: answer10 = num10;
+  }
   // --------------------------------------------
   // And above here
   // --------------------------------------------
