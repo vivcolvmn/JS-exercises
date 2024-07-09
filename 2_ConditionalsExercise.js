@@ -158,7 +158,11 @@ function exercise6(varA, varB, varC) {
   // --------------------------------------------
   // Write your code for the exercise below here:
   // --------------------------------------------
-
+  if (varA === varB && varB !== varC) {
+    answer6 = true;
+  } else {
+    answer6 = false;
+  }
   // --------------------------------------------
   // And above here
   // --------------------------------------------
@@ -183,10 +187,16 @@ function exercise7(num7) {
   // --------------------------------------------
   // Write your code for the exercise below here:
   // --------------------------------------------
-
+  switch (num7) {
+    case 1: answer7 = "You won!";
+    case 7: answer7 = "You are lucky!";
+    case 101: answer7 = "Welcome to coding 101!";
+    case 1000000: answer7 = "You are one in a million!";
+    default: answer7 = "Thanks for that!";
+  }
   // --------------------------------------------
   // And above here
-  // --------------------------------------------
+  // ---------------
   return answer7;
 }
 
