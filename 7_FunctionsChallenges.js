@@ -15,13 +15,23 @@
 // prependToString('awesome', 'very') // --> 'veryawesome'
 // prependToString('world', 'hello ') // --> 'hello world'
 // prependToString('nothing', '') // --> 'nothing'
-
+function prependToString(str1, str2) {
+    return str2 + str1;
+}
 // Exercise 2. Write a function called stringIncludes, which accepts two strings: the first string is a word and the second string is a single character.
 // The function should return true if the first string includes the character, otherwise it should return false.
 // IMPORTANT: Do not use the built in string.includes() function!
 // Examples:
 // stringIncludes('awesome', 'e'); // --> true
 // stringIncludes('awesome', 'z'); // --> false
+function stringIncludes(str, subStr) {
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === subStr) {
+            return true;
+        }
+    }
+    return false;
+}
 
 // Exercise 3. Write a function called stringLastIndexOf, which accepts two strings: the first is a word and the second is a single character.
 // The function should return the last index at which the character exists or -1 if the character is not found.
@@ -29,6 +39,14 @@
 // Examples:
 // stringLastIndexOf('awesome', 'e'); // --> 6
 // stringLastIndexOf('awesome', 'z'); // --> -1
+function stringLastIndexOf(str, target) {
+    for (let i = str.length - 1; i >=  0; i--) {
+        if (str[i] === target) {
+            return i;
+        }
+    }
+    return -1;
+}
 
 // Exercise 4. Write a function called removeFromString, which accepts a string, a starting index (number) and a number of characters to remove.
 // The function should return a new string with the characters removed.
@@ -38,6 +56,14 @@
 // removeFromString('Hello School', 0, 6) // --> 'School'
 // removeFromString('Hello School', 2, 4) // --> 'HeSchool'
 // removeFromString('Hello School', 6, 400) // --> 'Hello '
+function removeFromString(str, indexStart, charRemove) {
+    for (let i = indexStart; charRemove >= 0; i++) {
+        if (i === str.length) break;
+        str[i] = "";
+        charRemove--;
+    }
+    return str;
+}
 
 // Exercise 5. Write a function called indexOf, which accepts an array and a number.
 // The function should return the first index at which the value exists or -1 if the value is not found.
@@ -49,6 +75,14 @@
 // indexOf(arr2, 2); // --> 1
 // let arr3 = [1, 2];
 // indexOf(arr3, 10); // --> -1
+function indexOf(arr, num) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === num) {
+            return i;
+        }
+    }
+    return -1;
+}
 
 // Exercise 6. Write a function called includes which accepts a collection, a value, and an optional starting index. The function should return true if the value exists in the collection when we search starting from the starting index. Otherwise, it should return false.
 // The collection can be a string, an array, or an object. If the collection is a string or array, the third parameter is a starting index for where to search from. If the collection is an object, the function searches for the value among values in the object; since objects have no sort order, the third parameter is ignored.
@@ -61,3 +95,11 @@
 // includes('abcd', 'b') // --> true
 // includes('abcd', 'e') // --> false
 // includes('abcd', 'a', 2) // --> false
+function includes(collection, value, strtIndex = 0) {
+    if (typeof collection === 'string' || Array.isArray(collection)) {
+        return collection.slice(strtIndex).includes(value);
+    } else if (typeof collection === 'object') {
+        return Object.values(collection).includes(value);
+    }
+    return false;
+}
