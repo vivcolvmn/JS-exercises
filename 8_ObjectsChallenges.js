@@ -18,6 +18,15 @@
 // keys(obj2); // ["first", "last"]
 // let obj3 = {};
 // keys(obj3); // []
+function keys(obj) {
+    let keysArr = [];
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            keysArr.push(key);
+        }
+    }
+    return keysArr;
+}
 
 // Exercise 2. Write a function called values, which accepts an object and returns an array of all of the values in the object.
 // IMPORTANT: Do not use the built in Object.values() function!
@@ -28,6 +37,15 @@
 // values(obj2); // ["Matt", "Lane", true]
 // let obj3 = {};
 // values(obj3); // []
+function values(obj) {
+    let valuesArr = [];
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            valuesArr.push(obj[key]);
+        }
+    }
+    return valuesArr;
+};
 
 // Exercise 3. Write a function called entries, which accepts an object and returns an array of arrays of key-value pairs.
 // In other words, each sub-array is an "entry" in the object with two elements: the first element is the key, and the second element is the value.
@@ -41,6 +59,15 @@
 // [["first","Matt"], ["last","Lane"], ["isDogOwner",true]]
 // let obj3 = {};
 // entries(obj3); // []
+function entries(obj) {
+    let entriesArr = [];
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            entriesArr.push([key, obj[key]]);
+        }
+    }
+    return entriesArr;
+}
 
 // Exercise 4. Write a function called pluck, which takes an array of objects and the name of a key.
 // The function should return an array containing the value associated with that key for each object, or undefined if that key is not present in the object.
@@ -49,6 +76,13 @@
 // ["Tim", "Matt", "Elie"]
 // pluck([{ name: "Tim", isBoatOwner: true }, { name: "Matt", isBoatOwner: false }, { name: "Elie" }],'isBoatOwner')
 // [true, false, undefined]
+function pluck (arr, key) {
+    let valuesArr = [];
+    for (let obj of arr) {
+        valuesArr.push(obj[key]);
+    }
+    return valuesArr;
+}
 
 // Exercise 5. Write a function called stringFromObject that generates a string from an object's key/value pairs.
 // The format should be "key = value, key = value".
@@ -59,6 +93,15 @@
 // stringFromObject({ name: 'Elie', job: 'Instructor', isCatOwner: false });
 // "name = Elie, job = Instructor, isCatOwner = false"
 // stringFromObject({}); // ""
+function stringFromObject(obj) {
+    let result = [];
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            result.push(`${key} = ${obj[key]}`);
+        }
+    }
+    return result.join(", ");
+}
 
 // Exercise 6. Write a function called minMaxKeyInObject that accepts an object with numeric keys.*
 // The function should return an array with the following format: [lowestKey, highestKey]
@@ -67,3 +110,9 @@
 // [1, 10]
 // minMaxKeyInObject({ 1: 'Elie', 4: 'Matt', 2: 'Tim' });
 // [1, 4]
+function minMaxKeyInObject(obj) {
+    let keys = Object.keys(obj).map(Number);
+    let minKey = Math.min(...keys);
+    let maxKey = Math.max(...keys);
+    return [minKey, maxKey];
+}
